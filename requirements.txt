@@ -1,0 +1,3 @@
+## Packages required to run this script
+numpy
+h5py
