@@ -60,18 +60,14 @@ In addition it could contain(dependin on what is stored in the `eoscompose.h5`):
 *CompOSE* tables are given in natural units $k_b = c = \hbar =1$, while *stellarcollapse* tables are given in CGS units. The scripts will convert them from one to the other.
 ### Adiabatic index
 *CompOSE* tables store the adiabatic index as
-$$
-\Gamma =\frac{c_P}{c_V}, 
-$$
+$$\Gamma =\frac{c_P}{c_V},$$
 while *stellarcollapse* tables store it as
-$$
-\Gamma = \frac{d\ln P}{d\ln \rho} \approx \frac{c_s^2\cdot \varepsilon}{P}.
-$$
+$$\Gamma = \frac{d\ln P}{d\ln \rho} \approx \frac{c_s^2\cdot \varepsilon}{P}.$$
 So even if you store $\Gamma$ in the *CompOSE* table, the script will not use it and convert it instead.
 ### Electron fraction
 *CompOSE* does not use the electron fraction as an independent variable, rather it uses the charge fraction $Y_q = Y_e + Y_\mu$, that is identical to the electron fraction if there are no muons. So, since the *stellarcollapse* standard requires the $Y_e$, at present time the script cannot convert EOSs with muons (if you have any sugestion on how to do it, let me know).
 ### Heavy nuclei
-Some *CompOSE* tables store heavy nuclei as two different quantities (one for $2\leq A <20$ and one for $A\geq 20$), while in the *stellarcollapse* standard are stored as a single quantity with $A>4$. If we are in this case, the script will, first, transform the first quantity from the fraction of nuclei with $2\leq A <20$ to the fraction of nuclei with $4 <A <20 $, then it will aveage it with the second quantity. However, some ``smoothing'' corrections to the arrays are applied, in particular the script will set every value that is smaller than the minimum mass number that should be found in that array ($A=2$ in the first array and $A=20$ in the second) or that has a proton number lower than 1 to zero. Moreover, whereve a the fraction of heavy nuclei is negative it will be set to zero. 
+Some *CompOSE* tables store heavy nuclei as two different quantities (one for $2\leq A <20$ and one for $A\geq 20$), while in the *stellarcollapse* standard are stored as a single quantity with $A>4$. If we are in this case, the script will, first, transform the first quantity from the fraction of nuclei with $2\leq A <20$ to the fraction of nuclei with $4 < A <20 $, then it will aveage it with the second quantity. However, some ``smoothing'' corrections to the arrays are applied, in particular the script will set every value that is smaller than the minimum mass number that should be found in that array ($A=2$ in the first array and $A=20$ in the second) or that has a proton number lower than 1 to zero. Moreover, whereve a the fraction of heavy nuclei is negative it will be set to zero. 
 ## Final remarks
 Please note that the scripts provided here come with absolutely no warranty and I will not guarantee that mistake have not been made during conversions. If you decided to use it anyway, please check the output file and make sure that the results are physical. If you find any mistake, please let me know and I will try to fix it.
 **I do not make any claim on the EOS tables provided here, they are provided as they are, and all the rights goes to CompOSE and stellarcollapse for their standards.**
